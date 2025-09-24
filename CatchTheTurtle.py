@@ -63,7 +63,35 @@ def game_over():
         score_turtle.goto(0, 0)
         score_turtle.clear()
         time_turtle.clear()
-        score_turtle.write(f"Oyun bitdi!\nSon Score: {score}", align="center", font=("Arial", 24, "bold"))
+        score_turtle.write(f"Oyun bitdi!\nSon Score: {score}\nYenidən oynamaq üçün r düyməsin bas", align="center", font=("Arial", 24, "bold"))
+
+
+# --- Oyunu Başlatmaq üçün funksiya ---
+def start_game():
+    global score, time_left
+    score = 0
+    time_left = 10
+    catchTheTurtle.showturtle()
+
+    score_turtle.clear()
+    score_turtle.goto(0, 260)
+    score_turtle.write(f"Score: {score} ", align="center", font=("Arial", 24, "normal"))
+
+    time_turtle.clear()
+    time_turtle.goto(0, 230)
+    time_turtle.write(f"Time: {time_left} ", align="center", font=("Arial", 24, "normal"))
+
+    move_turtle()
+
+
+
+def restart():
+    start_game()
+
+
+#Klaviatura dinləmə
+wn.listen()
+wn.onkeypress(restart, "r")
 
 
 move_turtle()
