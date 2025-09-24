@@ -32,4 +32,14 @@ time_turtle.goto(0,230)
 time_turtle.write(f"Time: {score} ", align="center", font=("Arial", 24, "normal"))
 
 
+#Click turtle to increase score
+def click_turtle(x,y):
+    global score
+    score+=1
+    score_turtle.clear()
+    score_turtle.write(f"Score: {score} ", align="center", font=("Arial", 24, "normal"))
+
+catchTheTurtle.onclick(click_turtle)
+
+
 wn.mainloop()
